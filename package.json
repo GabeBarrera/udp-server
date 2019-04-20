@@ -1,0 +1,23 @@
+{
+  "name": "udp-server",
+  "version": "1.0.0",
+  "description": "A basic UDP client-server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabeBarrera/udp-server.git"
+  },
+  "keywords": [
+    "udp"
+  ],
+  "author": "Gabe Barrera",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GabeBarrera/udp-server/issues"
+  },
+  "homepage": "https://github.com/GabeBarrera/udp-server#readme"
+}
