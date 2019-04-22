@@ -38,7 +38,7 @@ inquire.prompt(questions).then(answers => {
 
   // Accept incoming message from server
   client.on('message', (msg, info) => {
-    console.log(`CLIENT received:\n  ${msg}\nSENDER: ${info.address}:${info.port}`);
+    console.log(`CLIENT received:\n  ${msg}\nSENDER: ${info.address}:${info.port}\n`);
     client.close(); // End program when concatenation complete
   });
 });

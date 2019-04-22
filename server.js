@@ -33,7 +33,7 @@ server.on('message', (msg, rinfo) => {
   // Return concatenated string back to client
   server.send(concatString,5433,'localhost',function(error){
     if(error) client.close();
-    else console.log('*** Returned concatenated string ***');
+    else console.log('*** Returned concatenated string ***\n');
   });
 });
 
