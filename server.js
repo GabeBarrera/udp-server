@@ -17,6 +17,7 @@
 const dgram = require('dgram');             // UDP Module
 const server = dgram.createSocket('udp4');  // UDP Socket
 
+// If an error, log and quit
 server.on('error', (err) => {
   console.log(`server error:\n${err.stack}`);
   server.close();
