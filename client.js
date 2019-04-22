@@ -1,17 +1,21 @@
+const inquire = require('inquirer');
 const dgram = require('dgram');
 const client = dgram.createSocket('udp4');
 
-const message = Buffer.from('Hello');
-client.send(message, 5432, 'localhost', (err) => {});
+var questions = [{
+  type: 'input',
+  name: 'input',
+  message: "What would you like to send?",
+}]
 
-client.on('message', (msg, rinfo) => {
-    console.log(`client got: ${msg} from ${rinfo.address}:${rinfo.port}`);
-    client.close();
-});
+inquire.prompt(questions).then(answers => {
+  const message = Buffer.from(`${answers['input']}`);
 
-client.on('listening', () => {
-  const address = client.address();
-  console.log(`server listening ${address.address}:${address.port}`);
-});
+  client.send(message, 5432, 'localhost');
 
-// client.bind(5433);
+  client.on('message', (msg, info) => {
+    console.log(`receiver got: ${msg} from ${info.address}:${info.port}`);
+  });
+})
+
+client.bind(5433);

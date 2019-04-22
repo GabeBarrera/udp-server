@@ -8,7 +8,8 @@ server.on('error', (err) => {
 
 server.on('message', (msg, rinfo) => {
   console.log(`server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
-  server.send(msg+" - Don't eat yellow snow",rinfo.port,'localhost',function(error){
+  concatString = msg + " - Don't eat yellow snow";
+  server.send(concatString,5433,'localhost',function(error){
     if(error){
       client.close();
     }else{
